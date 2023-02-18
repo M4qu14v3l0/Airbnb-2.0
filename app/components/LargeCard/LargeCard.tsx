@@ -11,7 +11,7 @@ interface Props {
 export default function LargeCard({img , title , description , buttonText} : Props) {
   return (
     <section className="relative py-16 cursor-pointer">
-      <div className="relative h-96 min-w-[300px]">
+      <div className="relative h-96 min-w-[250px]">
         <Image 
           fill
           style={{objectFit: "cover" }}

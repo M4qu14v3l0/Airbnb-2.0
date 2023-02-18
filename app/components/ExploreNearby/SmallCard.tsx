@@ -7,15 +7,15 @@ interface Props {
         location : string
         distance : string
     }>
-    }
+}
 
 
 export default function SmallCard({locations}: Props) {
   return (
-    <div>
+    <>
         {
             locations.map(location => (
-                <div className="flex items-center m-2 mt-5 space-x-4 rounded-xl cursor-pointer">
+                <div className="flex items-center m-2 mt-5 space-x-4 rounded-xl cursor-pointer hover:bg-gray-100 hover:scale-105 transition trasform duration-200 ease-out">
                     <div key={location.img} className="relative h-16 w-16">
                         <Image 
                             src={location.img}
@@ -27,11 +27,11 @@ export default function SmallCard({locations}: Props) {
 
                     <div className="">
                         <h2>{location.location}</h2>
-                        <h3>{location.distance}</h3>
+                        <h3 className="text-gray-500">{location.distance}</h3>
                     </div>
                 </div>
             ))
         }
-    </div>
+    </>
   )
 }

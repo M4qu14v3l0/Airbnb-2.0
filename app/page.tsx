@@ -15,7 +15,6 @@ export default function Home() {
         <ExploreNearby />
         <LiveAyWhere />
         <LargeCard 
-        
           img='https://links.papareact.com/4cj'
           title='The Greatest Outdoors'
           description='Whislists curated by Airbnb'

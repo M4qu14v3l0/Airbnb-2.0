@@ -99,7 +99,7 @@ export default function Header() {
                     >
                         <button className="flex-grow text-red-400">Search</button>
                     </Link>
-                    {/* mañana se hace todo */}
+                    {/* mañana se hace */}
                 </div>
 
             </div>

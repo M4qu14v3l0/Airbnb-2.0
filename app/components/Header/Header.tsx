@@ -71,7 +71,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
         <div onClick={() => {router.push("/") , placeholderNavigate(false)} } className='relative flex items-center h-10 cursor-pointer my-auto'>
             <Image 
-                src={'https://links.papareact.com/qd3'}
+                src={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png'}
                 alt="airbnb"
                 fill
                 style={{objectFit: "contain" , objectPosition: "left"}}

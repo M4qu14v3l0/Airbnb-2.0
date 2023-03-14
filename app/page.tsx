@@ -12,12 +12,12 @@ export default function Home() {
       <div className='max-w-7xl mx-auto px-8 sm:px-16'>
         <ExploreNearby />
         <LiveAnyWhere />
-        {/* <LargeCard 
-          img='asd'
+        <LargeCard 
+          img='https://wallpapercave.com/wp/LHTNEGF.jpg'
           title='The Greatest Outdoors'
           description='Whislists curated by Airbnb'
           buttonText='Get Inspired'
-        /> */}
+        />
       </div>
     </main>
   )

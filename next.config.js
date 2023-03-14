@@ -22,7 +22,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'links.papareact.com',
+        hostname: 'upload.wikimedia.org',
         port: '',
       },
     ],

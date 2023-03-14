@@ -11,6 +11,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+import { format } from 'date-fns'
 
 import { 
     MagnifyingGlassIcon ,
@@ -29,11 +30,9 @@ export default function Header() {
     const [ endDate , setEndDate ] = useState(new Date())
     const [ numberOfGuests , setNumberOfGuests ] = useState <any> (1)
 
-    const router = useRouter()
+    const [ placeholderNav , setPlaceHolderNav ] = useState <string> ("Start your search") 
 
-    const resetInput = () => {
-        setSearchInput("")
-    }
+    const router = useRouter()
 
     const selectionRange = {
         startDate: startDate,
@@ -46,11 +45,31 @@ export default function Header() {
         setEndDate(ranges.selection.endDate)
     }
 
+    const formattedStartDate =  format(new Date(`${startDate}`), "dd MMMM yy")
+    const formattedEndDate =  format(new Date(`${endDate}`) , "dd MMMM yy")
+    
+    const resetInput = () => {
+        setSearchInput("")
+    }
+
+    const placeholderNavigate = (prop:boolean) => {
+        if(prop){
+            const range = `${formattedStartDate} - ${formattedEndDate}`
+            setPlaceHolderNav(`${searchInput} | ${range} |  ${numberOfGuests}`)
+        }else{
+            setPlaceHolderNav("Start your search")
+        }
+    }
+
+    const handleOnClick = (value : boolean) => {
+        resetInput()
+        placeholderNavigate(value)
+    }
 
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
-        <div onClick={() => router.push("/")} className='relative flex items-center h-10 cursor-pointer my-auto'>
+        <div onClick={() => {router.push("/") , placeholderNavigate(false)} } className='relative flex items-center h-10 cursor-pointer my-auto'>
             <Image 
                 src={'https://links.papareact.com/qd3'}
                 alt="airbnb"
@@ -60,7 +79,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-lg">
-            <input value={searchInput} onChange={(e) => setSearchInput(e.target.value)} type="text" placeholder="Start your search" className="pl-5 bg-transparent outline-none flex-grow text-gray-600 placeholder-gray-400 "/>
+            <input value={searchInput} onChange={(e) => setSearchInput(e.target.value)} type="text" placeholder={placeholderNav} className="pl-5 bg-transparent outline-none flex-grow text-gray-600 placeholder-gray-400 "/>
             <MagnifyingGlassIcon className="hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md: mx-2" />
         </div>
 
@@ -94,12 +113,18 @@ export default function Header() {
                 <div className="flex">
                     <button onClick={resetInput} className="flex-grow text-gray-500">Cancel</button>
                     <Link
-                        href={`/locations/[...slug]`}
-                        as={`/locations/${searchInput}/${startDate.toISOString}/${endDate.toISOString}/${numberOfGuests}`}
+                        href={{
+                            pathname: '/search',
+                            query:{
+                                searchInput:`${searchInput}`,
+                                startDate:startDate.toISOString(),
+                                endDate:endDate.toISOString(),
+                                numberOfGuests:numberOfGuests,
+                            }
+                        }}
                     >
-                        <button className="flex-grow text-red-400">Search</button>
+                        <button onClick={() => handleOnClick(true)} className="flex-grow text-red-400">Search</button>
                     </Link>
-                    {/* comm */}
                 </div>
 
             </div>

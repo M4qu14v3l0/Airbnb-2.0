@@ -8,7 +8,7 @@ interface ExploreData {
 }
 
 async function getAllLocations() {
-    return await (await fetch('https://www.jsonkeeper.com/b/4G1G')).json()
+    return await (await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/smallCards/`)).json()
 }
 
 

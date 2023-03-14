@@ -7,6 +7,21 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'www.peru.travel',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.pinimg.com',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'wallpapercave.com',
+        port: '',
+      },
+      {
+        protocol: 'https',
         hostname: 'links.papareact.com',
         port: '',
       },

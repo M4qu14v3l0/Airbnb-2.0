@@ -9,12 +9,12 @@ interface Props {
 }
 
 async function getAllCardsData() {
-  return await (await fetch('https://www.jsonkeeper.com/b/VHHT')).json()
+  return await (await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/liveAnyWhere`)).json()
 }
 
 
 
-export default function LiveAyWhere() {
+export default function LiveAnyWhere() {
 
   const allCardsData = use(getAllCardsData())
 

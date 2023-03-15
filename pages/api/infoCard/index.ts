@@ -20,7 +20,7 @@ export default function handler(
   res.status(200).json(
     [
         {
-            img:"https://cf.bstatic.com/xdata/images/hotel/square200/23879120.webp?k=4aa1aa93194bb8a627e5d7ae590cbc28874cdf50533667b7fe5211f177c1cc5c&o=&s=1",
+            img:"https://cf.bstatic.com/xdata/images/hotel/max1024x768/46019064.jpg?k=6d24e6aad048cde81963118339594253e7793f24327744695af82d98dde4bc5d&o=&hp=1",
             location: "Arequipa",
             title:"La Hostería Boutique Hotel",
             description: "Esta posada, situada en una casa colonial restaurada con un precioso patio decorado con azulejos y una pequeña fuente, ofrece habitaciones con WiFi gratuita a solo 5 minutos a pie de la plaza",

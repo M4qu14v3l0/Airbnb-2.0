@@ -42,7 +42,7 @@ export default function page() {
               <InfoCard locations={searchResults}/>
             </div>
         </section>
-        <section className='hidden xl:inline-flex xl:min-w-[600px] xl:h-full '>
+        <section className='hidden xl:inline-flex xl:min-w-[600px] xl:h-full xl:-z-10'>
           <MapApp searchResults={searchResults}/>
         </section>
     </main>

@@ -3,6 +3,13 @@
 import React from 'react'
 import { useSearchParams } from 'next/navigation';
 import { format } from 'date-fns'
+import InfoCard from './components/infoCard/InfoCard';
+import { use } from "react"
+import MapApp from './components/map/MapApp';
+
+async function getAllLocations() {
+  return await (await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/infoCard/`)).json()
+}
 
 export default function page() {
   const searchParams = useSearchParams();
@@ -15,6 +22,7 @@ export default function page() {
   const formattedEndDate =  format(new Date(`${endDate}`) , "dd MMMM yy")
   const range = `${formattedStartDate} - ${formattedEndDate}`
 
+  const searchResults = use(getAllLocations())
 
   return (
     <main className='flex'>
@@ -30,6 +38,12 @@ export default function page() {
                 <p className='button'>Rooms and Beds</p>
                 <p className='button'>Filter</p>
             </div>
+            <div className=''>
+              <InfoCard locations={searchResults}/>
+            </div>
+        </section>
+        <section className='hidden xl:inline-flex xl:min-w-[600px]'>
+          <MapApp searchResults={searchResults}/>
         </section>
     </main>
   )

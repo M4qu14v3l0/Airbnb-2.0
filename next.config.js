@@ -25,8 +25,16 @@ const nextConfig = {
         hostname: 'upload.wikimedia.org',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'cf.bstatic.com',
+        port: '',
+      },
     ],
   },
+  env: {
+    mapbox_key: 'pk.eyJ1IjoibTRxdTE0djNsMCIsImEiOiJjbGY3ZnpleG0wMXZvM3Bxd3UwaGJneGM4In0.Aq9WkjN3lCzkQEojdGANKA'
+  }
 }
 
 module.exports = nextConfig
